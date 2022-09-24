@@ -11,7 +11,7 @@ Soln:
 #include <stdio.h>
 #include <math.h>
 
-void main (){
+int main (){
 int a, years, months, days;
 scanf("%d", &a);
 years = a/365;
@@ -19,7 +19,7 @@ a %= 365;
 months = a/30;
 a %= 30;
 days = a;
-printf("%d\t%d\t%d\t", years, months, days);
+printf("Years: %d\tMonths: %d\tDays: %d", years, months, days);
 return 0;
 }
 ```
@@ -39,12 +39,13 @@ Soln: `swap.c`
 #include<math.h>
 
 int main () {
-double a, b;
-scanf("%lf%lf", &a,&b);
-a = a-b;
-b = a+b;
-a = b-a;
-return 0;
+	int a, b;
+	scanf("%d%d", &a,&b);
+	a = a-b;
+	b = a+b;
+	a = b-a;
+	printf("Swapped: %d\t%d", a,b);
+	return 0;
 }
 ```
 
@@ -87,13 +88,21 @@ to covert character to integer values. End of Hint].
 
 Soln: `ascii_test.c`
 ```c
-char a,b;
-scanf("%c%c", a,b);
-int sum = (int)a+(int)b;
-/*Type casting byte, short, int , long (char and byte -> int) explicit(char->int) implicit is done by default by system */
-printf("%d", sum);
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+	char a,b;
+	printf("Enter the Characters:\n");
+	scanf("%c %c", &a,&b);
+	int sum = (int)a+(int)b;
+	/*Type casting byte, short, int , long (char and byte -> int) explicit(char->int) implicit is done by default by system */
+	printf("%d\n", sum);
+}
+
 ```
 Q6: 
+
 ```c
 #include <stdio.h>
 #include <math.h>
@@ -111,6 +120,7 @@ printf(“Sin %lf is: %lf \n”, angle, c);
 return 0;
 }
 ```
+
 Q7:Write a C program in “math_ops.c” that evaluates and prints the values of the 
 following arithmetic expressions. Here x and y are floating point numbers to be 
 taken as input from the user. The value of pi is 3.142. Use exp, sin, cos and 
@@ -123,15 +133,21 @@ Soln: `math_ops.c`
 #include <math.h>
 
 int main(){
-float x, y;
-scanf("%lf%lf", x,y);
-float pi = 3.142;
-double a = sin(60);
-double b = tanh(0.33);
-double c = (b + pi)/2y;
-double expr2 = sin(c);
-printf("%d", expr2);
-return 0;
+	float x, y;
+	printf("Enter Floating Point Numbers: ");
+	scanf("%f %f", &x,&y);
+	/*Expression 1*/
+	float a = sin(60);
+	float expr1 = ((exp(x)*a) + (5.6*pow(10,-5)))/(3*a);
+	printf("Expression 1: %f\n", expr1);
+
+	/*Expression 2*/
+	float pi = 3.142;
+	float b = atan(0.33);
+	float c = (b + pi)/(2*y);
+	float expr2 = sin(c);
+	printf("Expression 2: %f\n", expr2);
+	return 0;
 }
 ```
 
