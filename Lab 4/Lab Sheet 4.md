@@ -1,21 +1,10 @@
 # Lab 4
-Q1: Create a directory “lab4” inside “myprogs” directory that you have created in the 
-last week’s lab session. This week, we will write a bit more advanced C programs.
-We will also learn how to use <math.h> library for evaluating various mathematical 
-expressions. You shall need to use the basics that were covered in the previous lab 
-session. I hope that you are now familiar with the following arithmetic operations:
-Addition: 
-num3 = num1 + num2
-Subtraction:
-num3 = num1 - num2
-Multiplication:
-num3 = num1 + num2
-Integer Division:
-num3 = num1 / num2
-Modulus (or remainder after division)
-num3 = num1 % num2
-Let us write a few more C programs using the fundamentals covered in the 
-previous lab session
+Q1: Write a C program that reads in an integer denoting number of days. It prints 
+the number of years, number of months and the number of days that constitute 
+the input number of days. For example, if the input number is 403, it should 
+print 1(year), 1(month), 13(days). For simplicity: there is no need to consider 
+leap years and assume all months have 30 days. [Hint: Use modulus (%) and 
+division (/) operators. End of Hint]
 
 Soln:
 ```c
@@ -23,7 +12,15 @@ Soln:
 #include <math.h>
 
 void main (){
-
+int a, years, months, days;
+scanf("%d", &a);
+years = a/365;
+a %= a/365;
+months = a/30;
+a %= a/30;
+days = a;
+printf("%d\t%d\t%d\t", years, months, days);
+return 0;
 }
 ```
 
@@ -41,10 +38,13 @@ Soln: `swap.c`
 #include<stdio.h>
 #include<math.h>
 
-int main (void){
-int a, b;
-scanf("%d%d", &a,&b);
-
+int main () {
+double a, b;
+scanf("%lf%lf", &a,&b);
+a = a-b;
+b = a+b;
+a = b-a;
+return 0;
 }
 ```
 
@@ -59,7 +59,7 @@ to compute a sales-person's bonus, commission and gross salary. Your program
 should take the number of computers sold (in a month) and the sale price of a 
 computer as user input.
 
-Soln:`computer_sales.c`
+Soln: `computer_sales.c`
 ```c
 #include<stdio.h>
 #include<math.h>
@@ -76,6 +76,7 @@ cp1 = 0.02 * a *b;
 gp1 = bp1 + cp1;
 printf("Sales-person's bonus, Commission and Gross salary are respectively:");
 printf("%h\t%h\t%h\t", bp1, cp1, gp1); 
+return 0;
 }
 ```
 
@@ -84,7 +85,7 @@ returns the sum of their ASCII as output. For instance, input is A and B, the
 output should be 131 (sum of the ASCII of A and B). [Hint: Use explicit typecast 
 to covert character to integer values. End of Hint].
 
-Soln:`ascii_test.c`
+Soln: `ascii_test.c`
 ```c
 char a,b;
 scanf("%c%c", a,b);
@@ -116,4 +117,43 @@ taken as input from the user. The value of pi is 3.142. Use exp, sin, cos and
 tan functions from math.h library. It is now your task to figure out how to use 
 the above functions, what is their syntax. Take help of GOOGLE!
 
-Soln:`math_ops.c`
+Soln: `math_ops.c`
+```c
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+float x, y;
+scanf("%lf%lf", x,y);
+float pi = 3.142;
+double a = sin(60);
+double b = tanh(0.33);
+double c = (b + pi)/2y;
+double expr2 = sin(c);
+printf("%d", expr2);
+return 0;
+}
+```
+
+Q8: As you know, the roots x1 and x2 of a quadratic equation ax2 + bx + c = 0 are 
+calculated by: 
+x1 = (–b + √ (b2 – 4ac))/2a,
+x2 = (–b – √ (b2 – 4ac))/2a
+Write a C program named “quadroots.c”, which should take a, b and c as 
+inputs, and output the values of x1 and x2.
+
+Soln: `quadroots.c`
+```c
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+int a, b,c;
+scanf("%lf%lf%lf", a,b,c);
+double D = b pow(2) - 4ac;
+double x1 = (-b + sqrt((double)D));
+double x2 = (-b - sqrt((double)D));
+printf("%d\t%d", x1,x2);
+return 0;
+}
+```
