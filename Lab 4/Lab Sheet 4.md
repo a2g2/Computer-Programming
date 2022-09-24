@@ -15,9 +15,9 @@ void main (){
 int a, years, months, days;
 scanf("%d", &a);
 years = a/365;
-a %= a/365;
+a %= 365;
 months = a/30;
-a %= a/30;
+a %= 30;
 days = a;
 printf("%d\t%d\t%d\t", years, months, days);
 return 0;
