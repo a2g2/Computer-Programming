@@ -164,12 +164,14 @@ Soln: `quadroots.c`
 #include <math.h>
 
 int main(){
-int a, b,c;
-scanf("%lf%lf%lf", a,b,c);
-double D = b pow(2) - 4ac;
-double x1 = (-b + sqrt((double)D));
-double x2 = (-b - sqrt((double)D));
-printf("%d\t%d", x1,x2);
-return 0;
+	/*Roots of Quadratic Questions*/
+	float a, b, c;
+	printf("Enter values of a, b & c: \n");
+	scanf("%f%f%f", &a,&b,&c);
+	float D = (pow(b,2)-(4*a*c))/(2*a);
+	float x1 = ((-1*b) + sqrt(D));
+	float x2 = ((-1*b) - sqrt(D));
+	printf("Roots are: %f\t%f", x1,x2);
+	return 0;
 }
 ```
