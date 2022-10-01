@@ -65,3 +65,8 @@ int main(){
 	return 0;
 }
 ```
+
+Soln_2:
+```c
+
+```
